@@ -9,7 +9,6 @@ class Solution:
             if i in operators:
                 op_stack.append(i)
             else:
-                #num_stack.insert(0, i)
                 num_stack.append(i)
         print(op_stack)
         print(num_stack)
