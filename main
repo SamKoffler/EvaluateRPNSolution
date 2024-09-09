@@ -1,0 +1,31 @@
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        if len(tokens)==2:
+            return tokens[0]
+        operators = {'+': 1, '-': 1, '*': 1, '/': 1}
+        num_stack = []
+        op_stack = []
+        for i in tokens:
+            if i in operators:
+                op_stack.append(i)
+            else:
+                #num_stack.insert(0, i)
+                num_stack.append(i)
+        print(op_stack)
+        print(num_stack)
+        curr = int(num_stack[0])
+        num_stack.pop(0)
+        while num_stack!=[]:
+            num = int(num_stack[0])
+            num_stack.pop(0)
+            op = op_stack[0]
+            op_stack.pop(0)
+            if op == '+':
+                curr += num
+            if op == '-':
+                curr -= num
+            if op == '*':
+                curr *= num
+            if op == '/':
+                curr /= num
+        return curr
